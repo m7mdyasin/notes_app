@@ -48,7 +48,7 @@ class NoteCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 2),
+                            padding: const EdgeInsets.only(top: 15),
                             child: Text(
                               'Flutter Tips',
                               style: TextStyle(
@@ -60,14 +60,17 @@ class NoteCard extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: 7),
-                          Text(
-                            'I will be the greatest computer engineerer',
-                            style: TextStyle(
-                              fontFamily: 'Cairo',
-                              fontSize: 15.5,
-                              color: Color(0xFF4361ee),
-                              fontWeight: FontWeight.w500,
+                          SizedBox(height: 15),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'I will be the greatest computer engineerer.  I will be the greatest computer engineerer.  I will be the greatest computer engineerer.   I will be the greatest computer engineerer. ',
+                              style: TextStyle(
+                                fontFamily: 'Cairo',
+                                fontSize: 15.5,
+                                color: Color(0xFF4361ee),
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ],
