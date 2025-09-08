@@ -50,7 +50,7 @@ class NoteCard extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 15),
                             child: Text(
-                              'Flutter Tips',
+                              'Add Your Notes To change Your Life',
                               style: TextStyle(
                                 fontFamily: 'Benzin',
                                 fontSize: 21,
@@ -64,7 +64,7 @@ class NoteCard extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'I will be the greatest computer engineerer.  I will be the greatest computer engineerer.  I will be the greatest computer engineerer.   I will be the greatest computer engineerer. ',
+                              'I will be the greatest computer engineerer.',
                               style: TextStyle(
                                 fontFamily: 'Cairo',
                                 fontSize: 15.5,
