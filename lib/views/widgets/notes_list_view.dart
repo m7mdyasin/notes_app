@@ -11,27 +11,23 @@ class NotesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
-        List<NoteModel> notes =
-            BlocProvider.of<NotesCubit>(context).notes ??
-            [
-              NoteModel(
-                title: 'Add Your Notes To change Your Life',
-                content: 'I will be the greatest computer engineerer.',
-                date: DateTime.now().toString(),
+        if (state is NotesSuccess) {
+          final notes = state.notes;
+          return Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                itemCount: notes.length,
+                itemBuilder: (context, index) {
+                  return NoteCard(note: notes[index]);
+                },
               ),
-            ];
-        return Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15),
-            child: ListView.builder(
-              padding: EdgeInsets.zero,
-              itemCount: notes.length,
-              itemBuilder: (context, index) {
-                return const NoteCard();
-              },
             ),
-          ),
-        );
+          );
+        } else {
+          return const Expanded(child: Center(child: Text("No notes yet")));
+        }
       },
     );
   }

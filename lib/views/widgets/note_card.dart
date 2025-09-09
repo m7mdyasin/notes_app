@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NoteCard extends StatelessWidget {
-  const NoteCard({super.key});
+  const NoteCard({super.key, required this.note});
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class NoteCard extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 15),
                             child: Text(
-                              'Add Your Notes To change Your Life',
+                              note.title,
                               style: TextStyle(
                                 fontFamily: 'Benzin',
                                 fontSize: 21,
@@ -64,7 +66,7 @@ class NoteCard extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'I will be the greatest computer engineerer.',
+                              note.content,
                               style: TextStyle(
                                 fontFamily: 'Cairo',
                                 fontSize: 15.5,
@@ -102,7 +104,7 @@ class NoteCard extends StatelessWidget {
                     ),
                     SizedBox(width: 5),
                     Text(
-                      '9,Jul,2025',
+                      note.date,
                       style: TextStyle(
                         fontFamily: 'Cairo',
                         fontSize: 13.5,
