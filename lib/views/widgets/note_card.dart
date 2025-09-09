@@ -84,7 +84,9 @@ class NoteCard extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          note.delete();
+                        },
                         icon: Icon(
                           CupertinoIcons.trash,
                           color: Color(0xFFf72585),
