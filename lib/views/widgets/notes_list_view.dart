@@ -24,9 +24,9 @@ class NotesListView extends StatelessWidget {
                   return Dismissible(
                     key: ValueKey(note.key),
                     direction: DismissDirection.horizontal,
-                    onDismissed: (direction) {
+                    onDismissed: (direction) async {
                       if (direction == DismissDirection.endToStart) {
-                        note.delete();
+                        await note.delete();
                         context.read<NotesCubit>().fetchAllNotes();
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('note deleted')),
