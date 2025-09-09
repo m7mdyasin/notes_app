@@ -22,10 +22,14 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => NotesCubit(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(brightness: Brightness.light, fontFamily: 'Benzin'),
-        home: const NotesView(),
+      child: BlocProvider(
+        create: (context) => NotesCubit()..fetchAllNotes(),
+
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(brightness: Brightness.light, fontFamily: 'Benzin'),
+          home: const NotesView(),
+        ),
       ),
     );
   }

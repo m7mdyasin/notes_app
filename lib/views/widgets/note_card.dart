@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
@@ -86,6 +88,10 @@ class NoteCard extends StatelessWidget {
                       child: IconButton(
                         onPressed: () {
                           note.delete();
+                          BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('note deleted')),
+                          );
                         },
                         icon: Icon(
                           CupertinoIcons.trash,
